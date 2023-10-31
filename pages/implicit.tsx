@@ -8,7 +8,9 @@ import { jwtDecode } from "jwt-decode";
 var config = {
   issuer: `https://accounts.google.com/o/oauth2/v2/auth`,
   clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-  scopes: "email profile",
+  //scopes: "email",
+  // Set scopes to 'openid' makes idtoken as compact as possible
+  scopes: "openid",
   redirectUri: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_REDIRECTURI + "/implicit",
 };
 
@@ -34,8 +36,10 @@ export default function Implicit() {
       scope: config.scopes,
       state: oauth2.generateRandomState(),
       response_type: "id_token",
-      nonce: oauth2.generateRandomNonce(),
-    });
+ //     nonce: oauth2.generateRandomNonce(). 
+ //     Following is a hardcode, it showcases that we can replace it with any value.
+      nonce: 'A9GwX3CyLQ73F9xYDnaJKIvsrF98uFnQQuSZL-PJ3mE',
+});
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${queryIdToken}`;
   };
 
