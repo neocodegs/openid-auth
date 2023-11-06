@@ -4,7 +4,7 @@ import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { Button, Layout, Page, Text, Link } from "@vercel/examples-ui";
 
-var config = {
+let config = {
   issuer: `https://accounts.google.com/o/oauth2/v2/auth`,
   clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
   scopes: "email profile",

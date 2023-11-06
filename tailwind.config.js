@@ -5,4 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './node_modules/@vercel/examples-ui/**/*.js',
   ],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#222",
+      }
+    }
+  }
 }
