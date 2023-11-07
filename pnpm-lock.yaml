@@ -457,7 +457,7 @@ packages:
       next: 13.2.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sugar-high: 0.4.6
+      sugar-high: 0.4.7
     dev: false
 
   /abitype@0.7.1(typescript@4.5.5):
@@ -2523,8 +2523,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /sugar-high@0.4.6:
-    resolution: {integrity: sha512-V/5BlmDTQ0YCD6o+xumBpOBP8CWDqVDA8Pt7W/i8QzkwFnYwBxX9T4a8XRmay7ulnnCj/5rX3f845tbkXU1lIw==}
+  /sugar-high@0.4.7:
+    resolution: {integrity: sha512-vCg55qNhUBbBylR1DNWAYvqlwSVPebBJPh+fNzknN70b9CIyS1xoCRa0CnRzrAw4RYiqprteDfZg8ZeToZqqug==}
     dev: false
 
   /supports-color@7.2.0:

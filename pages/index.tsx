@@ -2,7 +2,9 @@ import {signIn, signOut, useSession} from "next-auth/react";
 import {Button, Layout, Page, Text, Code, Link} from "@vercel/examples-ui";
 import Image from "next/image";
 import "lib/test-eth.js"
-import icon from "../public/icon.svg"
+import iconMain from "../public/icons/icon.svg"
+import iconSvg from "../public/icons/eth.svg"
+import iconUSDC from "../public/icons/usdc.svg"
 
 export default function Home() {
     const {data, status} = useSession();
@@ -11,10 +13,10 @@ export default function Home() {
         <Page className="lg:max-w-5xl">
             <section className="flex justify-between">
                 <section className="flex gap-3 items-center">
-                    <Image src={icon} alt="home icon"/>
+                    <Image src={iconMain} alt="home icon"/>
                     <p className="text-xl font-semibold"> Openid3 </p>
                 </section>
-                <button className="text-gray-500">
+                <button className="font-semibold text-gray-400">
                     Sign Out
                 </button>
             </section>
@@ -22,8 +24,26 @@ export default function Home() {
             <section className="my-10">
                 <p className="text-xl font-semibold">Tokens</p>
                 <hr className="border-t border-accents-2 my-4"/>
-                <section>
+                <section className="flex items-center justify-between my-6">
+                    <section className="flex items-center gap-3">
+                        <Image src={iconSvg} alt="home icon"/>
+                        <p> ETH </p>
+                    </section>
+                    <section className="flex flex-col items-end">
+                        <p className="font-semibold">$0</p>
+                        <p className="text-gray-500">ETH 0</p>
+                    </section>
+                </section>
 
+                    <section className="flex items-center justify-between my-6">
+                    <section className="flex items-center gap-3">
+                        <Image src={iconUSDC} alt="home icon"/>
+                        <p> USDC </p>
+                    </section>
+                    <section className="flex flex-col items-end">
+                        <p className="font-semibold">$0</p>
+                        <p className="text-gray-500">USDC 0</p>
+                    </section>
                 </section>
             </section>
 
@@ -50,7 +70,7 @@ export default function Home() {
                     </section>
 
                     <section>
-                        <Button className="">
+                        <Button variant="primary" className="bg-primary">
                             Reset
                         </Button>
                     </section>
