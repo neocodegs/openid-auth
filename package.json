@@ -18,7 +18,8 @@
     "oauth4webapi": "^2.3.0",
     "query-string": "^8.1.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "web3": "^4.2.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",
