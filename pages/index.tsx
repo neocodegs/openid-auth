@@ -1,19 +1,41 @@
 import {signIn, signOut, useSession} from "next-auth/react";
 import {Button, Layout, Page, Text, Code, Link} from "@vercel/examples-ui";
 import Image from "next/image";
-import { getKey } from "../lib/test-eth.js"
+import {getKey} from "../lib/test-eth.js"
 import iconMain from "../public/icons/icon.svg"
 import iconEthSvg from "../public/icons/eth.svg"
 import iconUSDC from "../public/icons/usdc.svg"
 import iconEthPng from "../public/icons/eth.png"
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+
+function getOperationKey(setOperationKey: Function) {
+    let opkObj: object | null = null
+    const lsKey = "operation-key"
+    const opkData = localStorage.getItem(lsKey)
+
+    if (!opkData) {
+        opkObj = getKey()
+        localStorage.setItem(lsKey, JSON.stringify(opkObj))
+    } else {
+        try {
+            opkObj = JSON.parse(opkData || "")
+        } catch (e) {
+        }
+    }
+
+    setOperationKey(opkObj["privateKey"])
+}
+
 
 export default function Home() {
+
     const {data, status} = useSession();
+
+    const [operationKey, setOperationKey] = useState("")
+
     useEffect(() => {
-        const opk = getKey()
-        localStorage.setItem("operation-key", JSON.stringify(opk))
-    }, [])
+        getOperationKey(setOperationKey)
+    }, [operationKey])
 
     return (
         <Page className="lg:max-w-5xl">
@@ -74,7 +96,7 @@ export default function Home() {
 
                         <section className="my-10">
                             <p className="text-lg font-semibold">Local Operation Key</p>
-                            <p className="font-light text-gray-500">0x0576a174D229E3cFA37253523E645A78A0C91B59</p>
+                            <p className="font-light text-gray-500">{operationKey}</p>
                         </section>
 
                         <section className="my-10">
