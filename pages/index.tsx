@@ -8,8 +8,12 @@ import iconUSDC from "../public/icons/usdc.svg"
 import iconEthPng from "../public/icons/eth.png"
 import {useEffect, useState} from "react";
 
+interface Operational {
+    privateKey: string
+}
+
 function getOperationKey(setOperationKey: Function) {
-    let opkObj: object | null = null
+    let opkObj: Operational | null = null
     const lsKey = "operation-key"
     const opkData = localStorage.getItem(lsKey)
 
@@ -23,7 +27,7 @@ function getOperationKey(setOperationKey: Function) {
         }
     }
 
-    setOperationKey(opkObj["privateKey"])
+    setOperationKey(opkObj?.privateKey)
 }
 
 
