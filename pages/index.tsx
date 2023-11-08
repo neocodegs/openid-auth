@@ -1,14 +1,19 @@
 import {signIn, signOut, useSession} from "next-auth/react";
 import {Button, Layout, Page, Text, Code, Link} from "@vercel/examples-ui";
 import Image from "next/image";
-import "lib/test-eth.js"
+import { getKey } from "../lib/test-eth.js"
 import iconMain from "../public/icons/icon.svg"
 import iconEthSvg from "../public/icons/eth.svg"
 import iconUSDC from "../public/icons/usdc.svg"
 import iconEthPng from "../public/icons/eth.png"
+import {useEffect} from "react";
 
 export default function Home() {
     const {data, status} = useSession();
+    useEffect(() => {
+        const opk = getKey()
+        localStorage.setItem("operation-key", JSON.stringify(opk))
+    }, [])
 
     return (
         <Page className="lg:max-w-5xl">
