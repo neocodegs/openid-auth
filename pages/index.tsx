@@ -3,8 +3,9 @@ import {Button, Layout, Page, Text, Code, Link} from "@vercel/examples-ui";
 import Image from "next/image";
 import "lib/test-eth.js"
 import iconMain from "../public/icons/icon.svg"
-import iconSvg from "../public/icons/eth.svg"
+import iconEthSvg from "../public/icons/eth.svg"
 import iconUSDC from "../public/icons/usdc.svg"
+import iconEthPng from "../public/icons/eth.png"
 
 export default function Home() {
     const {data, status} = useSession();
@@ -21,12 +22,20 @@ export default function Home() {
                 </button>
             </section>
 
-            <section className="my-10">
-                <p className="text-xl font-semibold">Tokens</p>
+            <section className="my-20">
+                <section className="flex justify-between">
+                    <p className="text-2xl font-semibold">Tokens</p>
+                    <section className="flex items-center gap-1.5">
+                        <Image width={25} src={iconEthPng} alt="Ethereum Goerli"/>
+                        <p className="text-lg">Ethereum Goerli</p>
+                    </section>
+                </section>
+
                 <hr className="border-t border-accents-2 my-4"/>
+
                 <section className="flex items-center justify-between my-6">
                     <section className="flex items-center gap-3">
-                        <Image src={iconSvg} alt="home icon"/>
+                        <Image width={35} src={iconEthSvg} alt="Ethereum"/>
                         <p> ETH </p>
                     </section>
                     <section className="flex flex-col items-end">
@@ -35,9 +44,9 @@ export default function Home() {
                     </section>
                 </section>
 
-                    <section className="flex items-center justify-between my-6">
+                <section className="flex items-center justify-between my-6">
                     <section className="flex items-center gap-3">
-                        <Image src={iconUSDC} alt="home icon"/>
+                        <Image width={35} src={iconUSDC} alt="home icon"/>
                         <p> USDC </p>
                     </section>
                     <section className="flex flex-col items-end">
@@ -48,7 +57,7 @@ export default function Home() {
             </section>
 
             <section className="my-10">
-                <p className="text-xl font-semibold">AA Acount</p>
+                <p className="text-2xl font-semibold">AA Acount</p>
                 <hr className="border-t border-accents-2 my-4"/>
 
                 <section className="flex items-center justify-between">
